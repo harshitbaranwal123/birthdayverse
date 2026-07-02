@@ -6,7 +6,7 @@ import rashmi4 from '../{components,assets,data,hooks}/rashmi4.jpeg';
 import rashmi5 from '../{components,assets,data,hooks}/rashmi5.jpeg';
 import rashmi6 from '../{components,assets,data,hooks}/rashmi6.jpeg';
 import rashmi7 from '../{components,assets,data,hooks}/rashmi7.jpeg';
-import rashmi8 from '../{components,assets,data,hooks}/rashmi8.JPG';
+import rashmi8 from '../{components,assets,data,hooks}/rashmi8.jpg';
 
 export const birthdayConfig = {
   name: "Rashmi",
