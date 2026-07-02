@@ -4,6 +4,8 @@ import { galleryImages } from '../data/index.js';
 
 const Gallery = () => {
   const [selected, setSelected] = useState(null);
+  const [unlocked, setUnlocked] = useState(false);
+  const [secretKey, setSecretKey] = useState("");
 
   return (
     <section className="section-padding relative overflow-hidden">
@@ -28,7 +30,67 @@ const Gallery = () => {
         </motion.div>
 
         {/* Masonry grid */}
-        <div className="columns-2 md:columns-3 lg:columns-4 gap-3 md:gap-4">
+        {!unlocked ? (
+
+<div className="flex justify-center items-center py-24">
+
+  <motion.div
+    initial={{opacity:0, scale:0.9}}
+    animate={{opacity:1, scale:1}}
+    className="max-w-md w-full rounded-3xl border border-yellow-400/20 bg-[#111] p-10 text-center shadow-2xl"
+  >
+
+    <div className="text-7xl mb-6">
+      🔒
+    </div>
+
+    <h2 className="text-3xl font-display text-yellow-400 mb-4">
+      Private Memory Vault
+    </h2>
+
+    <p className="text-yellow-100/60 mb-8">
+      These memories are protected.
+      Only someone special may unlock them.
+    </p>
+
+    <input
+  type="password"
+  placeholder="Enter Secret Key"
+  value={secretKey}
+  onChange={(e) => setSecretKey(e.target.value)}
+  style={{
+    width: "100%",
+    padding: "15px",
+    background: "white",
+    color: "black",
+    position: "relative",
+    zIndex: 9999
+  }}
+/>
+
+<motion.button
+  type="button"
+  whileHover={{ scale: 1.05 }}
+  whileTap={{ scale: 0.95 }}
+ onClick={() => {
+  if (secretKey.trim().toLowerCase() === "11feb2025") {
+    setUnlocked(true);
+  } else {
+    alert("❌ Wrong Secret Key");
+  }
+}}
+  className="relative z-50 px-8 py-4 rounded-full bg-yellow-400 text-black font-semibold"
+>
+  🗝 Unlock Memories
+</motion.button>
+
+  </motion.div>
+
+</div>
+
+) : (
+
+<div className="columns-2 md:columns-3 lg:columns-4 gap-3 md:gap-4">
           {galleryImages.map((img, i) => (
             <motion.div
               key={img.id}
@@ -64,7 +126,9 @@ const Gallery = () => {
             </motion.div>
           ))}
         </div>
+)}
       </div>
+      
 
       {/* Lightbox */}
       <AnimatePresence>
