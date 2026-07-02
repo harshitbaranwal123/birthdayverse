@@ -1,12 +1,12 @@
 // src/data/index.js — All static content for the birthday website
-import rashmi1 from '../{components,assets,data,hooks}/rashmi1.png';
-import rashmi2 from '../{components,assets,data,hooks}/rashmi2.jpeg';
-import rashmi3 from '../{components,assets,data,hooks}/rashmi3.jpeg';
-import rashmi4 from '../{components,assets,data,hooks}/rashmi4.jpeg';
-import rashmi5 from '../{components,assets,data,hooks}/rashmi5.jpeg';
-import rashmi6 from '../{components,assets,data,hooks}/rashmi6.jpeg';
-import rashmi7 from '../{components,assets,data,hooks}/rashmi7.jpeg';
-import rashmi8 from '../{components,assets,data,hooks}/rashmi8.jpg';
+import rashmi1 from "../assets/rashmi1.png";
+import rashmi2 from "../assets/rashmi2.jpeg";
+import rashmi3 from "../assets/rashmi3.jpeg";
+import rashmi4 from "../assets/rashmi4.jpeg";
+import rashmi5 from "../assets/rashmi5.jpeg";
+import rashmi6 from "../assets/rashmi6.jpeg";
+import rashmi7 from "../assets/rashmi7.jpeg";
+import rashmi8 from "../assets/rashmi8.jpg";
 
 export const birthdayConfig = {
   name: "Rashmi",

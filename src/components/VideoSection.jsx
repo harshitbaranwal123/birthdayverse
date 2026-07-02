@@ -79,12 +79,12 @@ const VideoSection = () => {
               </div>
             ) : (
               <iframe
-                className="absolute inset-0 w-full h-full"
-                src="src="src="https://www.youtube.com/embed/CiyAA_xraSo?autoplay=1"
-                title="Birthday Video"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
+  className="absolute inset-0 w-full h-full"
+  src="https://www.youtube.com/embed/CiyAA_xraSo?autoplay=1"
+  title="Birthday Video"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+/>
             )}
           </div>
         </motion.div>
