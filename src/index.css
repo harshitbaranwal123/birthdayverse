@@ -1,0 +1,155 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-black text-white font-body overflow-x-hidden;
+    background: #080808;
+  }
+}
+
+@layer utilities {
+  .text-gold-gradient {
+    background: linear-gradient(135deg, #FFC300 0%, #FFD700 40%, #FFA500 70%, #FFD700 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .text-shimmer {
+    background: linear-gradient(90deg, #996515 0%, #FFD700 25%, #FFF3A3 50%, #FFD700 75%, #996515 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 4s linear infinite;
+  }
+  .glass {
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 195, 0, 0.15);
+  }
+  .glass-gold {
+    background: rgba(255, 195, 0, 0.06);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 195, 0, 0.25);
+  }
+  .glow-gold {
+    box-shadow: 0 0 30px rgba(255, 195, 0, 0.2), 0 0 60px rgba(255, 195, 0, 0.1);
+  }
+  .glow-gold-intense {
+    box-shadow: 0 0 40px rgba(255, 195, 0, 0.4), 0 0 80px rgba(255, 195, 0, 0.2), 0 0 120px rgba(255, 195, 0, 0.1);
+  }
+  .border-gold-subtle {
+    border: 1px solid rgba(255, 195, 0, 0.2);
+  }
+  .section-padding {
+    @apply py-20 md:py-28 px-4 md:px-8;
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-15px) rotate(2deg); }
+  66% { transform: translateY(-8px) rotate(-1deg); }
+}
+
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-25px); }
+}
+
+@keyframes candleFlicker {
+  0%, 100% { transform: scaleY(1) scaleX(1); opacity: 1; }
+  25% { transform: scaleY(1.1) scaleX(0.9); opacity: 0.9; }
+  50% { transform: scaleY(0.95) scaleX(1.05); opacity: 1; }
+  75% { transform: scaleY(1.05) scaleX(0.95); opacity: 0.95; }
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+@keyframes riseUp {
+  0% { transform: translateY(0) scale(1); opacity: 0.8; }
+  100% { transform: translateY(-120vh) scale(0.5); opacity: 0; }
+}
+
+@keyframes shootingStar {
+  0% { transform: translateX(0) translateY(0); opacity: 1; width: 2px; }
+  100% { transform: translateX(300px) translateY(300px); opacity: 0; width: 60px; }
+}
+
+.balloon {
+  animation: float 6s ease-in-out infinite;
+}
+.balloon:nth-child(2) { animation-delay: -2s; animation-duration: 7s; }
+.balloon:nth-child(3) { animation-delay: -4s; animation-duration: 5s; }
+.balloon:nth-child(4) { animation-delay: -1s; animation-duration: 8s; }
+.balloon:nth-child(5) { animation-delay: -3s; animation-duration: 6.5s; }
+
+.candle-flame {
+  animation: candleFlicker 0.8s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+.heart-float {
+  animation: riseUp linear infinite;
+}
+
+/* Flip card styles */
+.flip-card { perspective: 1000px; }
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+.flip-card:hover .flip-card-inner { transform: rotateY(180deg); }
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 16px;
+}
+.flip-card-back { transform: rotateY(180deg); }
+
+/* Swiper overrides */
+.swiper-button-next, .swiper-button-prev {
+  color: #FFC300 !important;
+}
+.swiper-button-next::after, .swiper-button-prev::after {
+  font-size: 18px !important;
+}
+
+/* Section divider */
+.gold-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,195,0,0.5), transparent);
+}
+
+/* Loading animation */
+@keyframes logoReveal {
+  0% { opacity: 0; transform: scale(0.6) rotate(-10deg); }
+  60% { transform: scale(1.05) rotate(1deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+.logo-animate { animation: logoReveal 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+
+/* Gift box */
+.gift-lid { transform-origin: bottom center; transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); }
+.gift-lid.open { transform: rotateX(-120deg) translateY(-20px); }
