@@ -14,9 +14,16 @@ import FinalLetter from './components/FinalLetter.jsx';
 import GrandFinale from './components/GrandFinale.jsx';
 import Footer from './components/Footer.jsx';
 import SectionDivider from './components/SectionDivider.jsx';
+import HiddenHeart from "./components/HiddenHeart";
+import ShapeSelector from "./components/ShapeSelector";
+import MemoryVault from "./components/MemoryVault";
+import PrivateGallery from "./components/PrivateGallery";
 
 const App = () => {
   const [loaded, setLoaded] = useState(false);
+  const [showShapes, setShowShapes] = useState(false);
+  const [showVault, setShowVault] = useState(false);
+  const [showPrivateGallery, setShowPrivateGallery] = useState(false);
 
   return (
     <div className="min-h-screen bg-black">
@@ -31,6 +38,31 @@ const App = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
           >
+           <HiddenHeart
+             onReveal={() => setShowShapes(true)}
+           />
+           {showShapes && (
+      <ShapeSelector
+       onHeart={() => {
+       setShowShapes(false);
+       setShowVault(true);
+       }}
+        onClose={() => setShowShapes(false)}
+      />
+      )}
+     {showVault && (
+     <MemoryVault
+       onUnlock={() => {
+       setShowVault(false);
+        setShowPrivateGallery(true);
+       }}
+       onClose={() => setShowVault(false)}
+     />
+       )}
+       {showPrivateGallery && (
+    <PrivateGallery />
+    )}
+
             {/* 1. Hero */}
             <Hero />
             <SectionDivider label="Counting Down" />

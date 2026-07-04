@@ -1,11 +1,11 @@
 // src/data/index.js — All static content for the birthday website
 import rashmi1 from "../assets/rashmi1.png";
 import rashmi2 from "../assets/rashmi2.jpeg";
-import rashmi3 from "../assets/rashmi3.jpeg";
+import rashmi3 from "../assets/rashmi3.jpg";
 import rashmi4 from "../assets/rashmi4.jpeg";
-import rashmi5 from "../assets/rashmi5.jpeg";
-import rashmi6 from "../assets/rashmi6.jpeg";
-import rashmi7 from "../assets/rashmi7.jpeg";
+import rashmi5 from "../assets/rashmi5.jpg";
+import rashmi6 from "../assets/rashmi6.jpg";
+import rashmi7 from "../assets/rashmi7.jpg";
 import rashmi8 from "../assets/rashmi8.jpg";
 
 export const birthdayConfig = {
